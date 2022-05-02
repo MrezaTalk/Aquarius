@@ -1,0 +1,9 @@
+<ModulePackages>
+   <Package Id="VMware.VimAutomation.Sdk.Interop" Version="12.5.0.19093564" />
+   <Package Id="VMware.VimAutomation.Sdk.Types" Version="12.5.0.19093564" />
+   <Package Id="VMware.VimAutomation.Sdk.Util10Ps" Version="12.5.0.19093564" />
+   <Package Id="VMware.VimAutomation.Sdk.Util10" Version="12.5.0.19093564" />
+   <Package Id="VMware.VimAutomation.Ceip" Version="12.5.0.19093564" />
+   <Package Id="PhClient" Version="12.5.0.19093564" />
+   <Package Id="log4net" Version="2.0.12" />
+</ModulePackages>
