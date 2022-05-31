@@ -1518,7 +1518,7 @@ $loginButton_Click = {
 	if ($global:connectionStat -eq 1)
 	{
 		Start-Sleep 2
-		$statusLabel2.Text = "Please wait, getting ESXi List from vCneter"
+		$statusLabel2.Text = "Please wait, getting ESXi List from vCenter"
 		
 		$global:connectedvCenter = $textboxvCenter.Text
 		
@@ -1634,6 +1634,6 @@ $buttonAbout_Click={
 
 
 ]]></Code>
-  <Mode>0</Mode>
+  <Mode>1</Mode>
   <Assemblies />
 </File>

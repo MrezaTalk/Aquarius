@@ -24,11 +24,11 @@ function Main {
 	Import-Module 'C:\Program Files\MrezaTalk\Aquarius\VMware.Vim'
 	Import-Module 'C:\Program Files\MrezaTalk\Aquarius\VMware.VimAutomation.Cis.Core'
 	Import-Module 'C:\Program Files\MrezaTalk\Aquarius\VMware.VimAutomation.Core'
-	Import-Module VMware.VimAutomation.Sdk
-	Import-Module VMware.VimAutomation.Common
-	Import-Module VMware.Vim
-	Import-Module VMware.VimAutomation.Cis.Core
-	Import-Module VMware.VimAutomation.Core
+	#Import-Module VMware.VimAutomation.Sdk
+	#Import-Module VMware.VimAutomation.Common
+	#Import-Module VMware.Vim
+	#Import-Module VMware.VimAutomation.Cis.Core
+	#Import-Module VMware.VimAutomation.Core
 	
 	#--------------------------------------------------------------------------
 	#TODO: Add initialization script here (Load modules and check requirements)
