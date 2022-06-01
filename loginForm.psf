@@ -1452,12 +1452,15 @@ G4P4UaU/e4MQP8aPlOSqGHSJk43ALj/8xMZdkj3+jqnM39vv/tf8v6vbfZzr86BC/zle97/m+5tO
 #UI Elements
 $loginForm_Load = {
 	
-	$statusLabel2.Text = "Please Login to vCenter Server"
+	$loadingForm.visible = $false
+	$loadingForm.Close()
 	$loginForm.AcceptButton = $loginButton
+	$statusLabel2.Text = "Please Login to vCenter Server"
+		
+	
 	
 	
 }
-
 
 $exitButton_Click = {
 	#TODO: Place custom script here

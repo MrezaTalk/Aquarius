@@ -394,7 +394,7 @@ function getHostNTP($vmhost)
 {
 	$ntpStatus = Get-VMHost -Name $vmhost |
 	
-	Select Name, @{ N = "NTPServers"; E = { $_ | Get-VMHostNtpServer } },
+	Select Name, @{ N = "NTPServers"; E = { $_ | Get-VMHostNtpServer | Out-String } },
 		   @{ N = "Policy"; E = { (Get-VmHostService -VMHost $_ | Where-Object { $_.key -eq "ntpd" } | Select -ExpandProperty Policy) } },
 		   
 	   	   @{ N = "running"; E = { (Get-VmHostService -VMHost $_ | Where-Object { $_.key -eq "ntpd" } | Select -ExpandProperty Running) } }
@@ -504,13 +504,17 @@ function setNTPServer ($vmhostname, $ntpservers, $actionType)
 		Get-VMHost -Name $vmhostname | Remove-VMHostNtpServer -NtpServer $currentntpServers -Confirm:$false
 		try
 		{
-			Get-VMHost -Name $vmhostname | Add-VMHostNtpServer -NtpServer $ntpservers
-			$result | Add-Member -Type NoteProperty -Name OperationResult -Value $ntpservers, "NTP replaced successfully"
+			foreach ($ntp in $ntpservers)
+			{
+				Get-VMHost -Name $vmhostname | Add-VMHostNtpServer -NtpServer $ntp
+			}
+			
+			$result | Add-Member -Type NoteProperty -Name OperationResult -Value "NTP replaced successfully"
 		}
 		catch
 		{
 			Get-VMHost -Name $vmhostname | Add-VMHostNtpServer -NtpServer $currentntpServers
-			$result | Add-Member -Type NoteProperty -Name OperationResult -Value $currentntpServers, "Replacing NTP Failed, Roll Back to old NTP servers"
+			$result | Add-Member -Type NoteProperty -Name OperationResult -Value "Replacing NTP Failed, Roll Back to old NTP servers"
 		}
 	}
 	elseif ($actionType -eq 1)
@@ -520,8 +524,12 @@ function setNTPServer ($vmhostname, $ntpservers, $actionType)
 	
 		try
 		{
-			Get-VMHost -Name $vmhostname | Add-VMHostNtpServer -NtpServer $ntpservers
-			$result | Add-Member -Type NoteProperty -Name OperationResult -Value $ntpservers, "NTP added successfully"
+			foreach ($ntp in $ntpservers)
+			{
+				Get-VMHost -Name $vmhostname | Add-VMHostNtpServer -NtpServer $ntp
+			}
+			
+			$result | Add-Member -Type NoteProperty -Name OperationResult -Value "NTP added successfully"
 		}
 		catch
 		{

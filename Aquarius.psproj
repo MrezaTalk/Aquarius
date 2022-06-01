@@ -9,5 +9,6 @@
     <File Build="0" ReferenceFunction="Show-loginForm_psf">loginForm.psf</File>
     <File Build="0" ReferenceFunction="Show-mainForm_psf">mainForm.psf</File>
     <File Build="0" ReferenceFunction="Show-About_psf">About.psf</File>
+    <File Build="0" ReferenceFunction="Show-loadingForm_psf">loadingForm.psf</File>
   </Files>
 </Project>

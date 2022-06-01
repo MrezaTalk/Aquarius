@@ -53,6 +53,10 @@ function change-password($vmhost, $action, $inputPass)
 	$date = Get-Date
 	$succesNote = $date.ToString() + " : Password Changed Successfully"
 	$failedNote = $date.ToString() + " : Changing Password failed"
+	$password = Get-RandomCharacters -length 4 -characters 'abcdefghiklmnoprstuvwxyz'
+	$password += Get-RandomCharacters -length 3 -characters 'ABCDEFGHKLMNOPRSTUVWXYZ'
+	$password += Get-RandomCharacters -length 3 -characters '1234567890'
+	$password += Get-RandomCharacters -length 2 -characters '!"$%&/()?}{@#*'
 	if ($action -eq 1)
 	{
 		$password = Scramble-String $password
@@ -548,12 +552,12 @@ function setNTPServer ($vmhostname, $ntpservers, $actionType)
 
 ############## My Variables ####################
 $global:connectedvCenter = ''
-#$connectionStat = 0
 $global:connectionStat = 0
 $global:hosts
-$password = Get-RandomCharacters -length 4 -characters 'abcdefghiklmnoprstuvwxyz'
-$password += Get-RandomCharacters -length 3 -characters 'ABCDEFGHKLMNOPRSTUVWXYZ'
-$password += Get-RandomCharacters -length 3 -characters '1234567890'
-$password += Get-RandomCharacters -length 2 -characters '!"$%&/()?}{@#*'
+$global:VimAutomationSdkFolder = "C:\Program Files\MrezaTalk\Aquarius\VMware.VimAutomation.Sdk"
+$global:VimAutomationCommonFolder = "C:\Program Files\MrezaTalk\Aquarius\VMware.VimAutomation.Common"
+$global:VimFolder = "C:\Program Files\MrezaTalk\Aquarius\VMware.Vim"
+$global:VimAutomationCisCoreFolder = "C:\Program Files\MrezaTalk\Aquarius\VMware.VimAutomation.Cis.Core"
+$global:VimAutomationCoreFolder = "C:\Program Files\MrezaTalk\Aquarius\VMware.VimAutomation.Core"
 $global:sshDT
 $global:ntpDT
