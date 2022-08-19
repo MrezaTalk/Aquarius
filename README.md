@@ -5,7 +5,7 @@ This tool is developed with powershell and leveraging VMware powercli modules.
 
 # Installation
 In order to run application, the simplest way is to download MSI Installer from windows-installer folder and run the installer, otherwise you 
-can download the Aquarius.Package.ps1 file and run in powershell, but you should consider that for running ps1 package you should have VMware vim automation SDKs 
+can download the ps1Package/Aquarius.Package.ps1 file and run in powershell, but you should consider that for running ps1 package you should have VMware vim automation SDKs 
 on your system's powershell modules path or path specified in ps1 file.
 After MSI installation, a shortcut of application will be created on your desktop, you can run the application by clicking on the shortcut.
 
